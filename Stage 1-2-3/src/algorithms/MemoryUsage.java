@@ -8,7 +8,6 @@ public class MemoryUsage {
 		Runtime rt = Runtime.getRuntime();
 		totalMemory = rt.totalMemory();
 		freeMemory = rt.freeMemory();
-		return (totalMemory-freeMemory)/(1024) ;
+		return (totalMemory-freeMemory)/(1024);
 	}
-
 }

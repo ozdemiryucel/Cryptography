@@ -46,9 +46,7 @@ public class DES {
 		try {
 			DESKeySpec dks = new DESKeySpec(bytesOfSharedSecret);
 			SecretKeyFactory skf = SecretKeyFactory.getInstance("DES");
-			SecretKey myDesKey = null;
-			
-			myDesKey = skf.generateSecret(dks);
+			SecretKey myDesKey = skf.generateSecret(dks);
 			
 		    Cipher desCipher;
 	

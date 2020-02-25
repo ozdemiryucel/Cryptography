@@ -7,8 +7,8 @@ import java.util.List;
 
 public class ExtendedEuclideanAlgorithm {
 	
-	private static List<BigInteger> xList = new ArrayList<BigInteger>();
-	private static List<BigInteger> returnList = new ArrayList<BigInteger>();
+	private static List<BigInteger> xList = new ArrayList<>();
+	private static List<BigInteger> returnList = new ArrayList<>();
 	
 	/**
 	 * @param a
@@ -39,9 +39,9 @@ public class ExtendedEuclideanAlgorithm {
 		}
 		
 		
-		if(a.compareTo(b) == 1)
+		if(a.compareTo(b) > 0)
 			gcd = getGcdOf(a, b);
-		else if(b.compareTo(a) == 1)
+		else
 			gcd = getGcdOf(b, a);
 		
 		
@@ -49,19 +49,19 @@ public class ExtendedEuclideanAlgorithm {
 		
 		BigInteger y = null;
 		
-		if(a.compareTo(b) == 1)
+		if(a.compareTo(b) > 0)
 			y = gcd.subtract(lastX.multiply(b)).divide(a);
-		else if(b.compareTo(a) == 1)
+		else if(b.compareTo(a) > 0)
 			y = gcd.subtract(lastX.multiply(a)).divide(b);
 		
 
 		returnList.add(gcd);
 		
-		if(a.compareTo(b) == 1) {
+		if(a.compareTo(b) > 0) {
 			returnList.add(y);
 			returnList.add(lastX);
 		}
-		else if (b.compareTo(a) == 1) {
+		else if (b.compareTo(a) > 0 ) {
 			returnList.add(lastX);
 			returnList.add(y);
 		}
@@ -100,8 +100,6 @@ public class ExtendedEuclideanAlgorithm {
 		}
 		
 		return result;
-
-
 	}
 
 	public static BigInteger getMultiplicativeInverse(BigInteger a, BigInteger b) {
@@ -111,21 +109,10 @@ public class ExtendedEuclideanAlgorithm {
            return new BigInteger("-1");
         }
 
-        BigInteger multiplicativeInverse = list.get(1).mod(b).add(b).mod(b);
-        
-        return multiplicativeInverse;
+        return list.get(1).mod(b).add(b).mod(b);
 	}
 	
 	public static boolean areRelativelyPrime(BigInteger a, BigInteger b) {
-		
-		boolean relativelyPrime;
-
-		if(getGcdOf(a, b).equals(BigInteger.ONE))
-			relativelyPrime = true;
-		else
-			relativelyPrime = false;
-
-		return relativelyPrime;
-			
+		return getGcdOf(a, b).equals(BigInteger.ONE);
 	}
 }

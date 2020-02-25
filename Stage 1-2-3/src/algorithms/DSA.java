@@ -18,7 +18,6 @@ public class DSA {
         XY.put("X", x);
         XY.put("Y", y);
 
-
         return XY;
     }
 
@@ -40,7 +39,6 @@ public class DSA {
         DSAPrivateKey privateKey = null;
         if (keypair != null) {
             privateKey = (DSAPrivateKey) keypair.getPrivate();
-//            DSAPublicKey publicKey = (DSAPublicKey) keypair.getPublic();
         }
 
         DSAParams dsaParams = null;
@@ -72,9 +70,9 @@ public class DSA {
         BigInteger u2 = r.multiply(w).mod(q);
 
         BigInteger v = (FastModularExponentiation.getMod(g,u1,p)
-                        .multiply(FastModularExponentiation.getMod(y,u2,p))
-                        .mod(p))
-                            .mod(q);
+                .multiply(FastModularExponentiation.getMod(y,u2,p))
+                .mod(p))
+                .mod(q);
 
         return v.equals(r);
 

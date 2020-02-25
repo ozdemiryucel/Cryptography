@@ -41,8 +41,8 @@ public class FastModularExponentiation {
 
 	private static List<BigInteger> getPowersOfTwos(BigInteger n) {
 		
-		List<BigInteger> oneList = new ArrayList<BigInteger>();
-		List<BigInteger> actualList = new ArrayList<BigInteger>();
+		List<BigInteger> oneList = new ArrayList<>();
+		List<BigInteger> actualList = new ArrayList<>();
 		
 		while(true) {
 			BigInteger remainder = n.mod(BigInteger.TWO);

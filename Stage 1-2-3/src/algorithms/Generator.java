@@ -42,17 +42,17 @@ public class Generator {
 	    }
 	    
 	    for (BigInteger i = new BigInteger("3");
-	    		i.multiply(i).compareTo(n) == -1 || i.multiply(i).equals(n);
-	    		i = i.add(BigInteger.TWO)) {
-	        while (n.mod(i).equals(BigInteger.ZERO)) {
+			 i.multiply(i).compareTo(n) < 0 || i.multiply(i).equals(n);
+			 i = i.add(BigInteger.TWO)) {
+	    	while (n.mod(i).equals(BigInteger.ZERO)) {
 	            primeFactors.add(i);
 	            n = n.divide(i);
 	        }
 	    }
-	    if (n.compareTo(BigInteger.ONE) == 1)
+	    if (n.compareTo(BigInteger.ONE) > 0)
 	        primeFactors.add(n);
 	    
-	    Set<BigInteger> set = new HashSet<BigInteger>(primeFactors);
+	    Set<BigInteger> set = new HashSet<>(primeFactors);
 	    primeFactors.clear();
 	    primeFactors.addAll(set);
 	    

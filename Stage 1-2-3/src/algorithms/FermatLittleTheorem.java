@@ -48,7 +48,7 @@ public class FermatLittleTheorem {
 			remainder = a.modPow(k, n);
 			
 			if (!remainder.equals(BigInteger.ONE))
-				if (k.compareTo(n.subtract(BigInteger.ONE)) == -1)
+				if (k.compareTo(n.subtract(BigInteger.ONE)) < 0)
 					if ((remainder.subtract(n)).equals(new BigInteger("-1"))) {
 						prime = false;
 						break;

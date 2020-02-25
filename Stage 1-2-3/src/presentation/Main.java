@@ -120,7 +120,6 @@ public class Main {
 		System.out.println("Sender's public key: [N,e] = " + Arrays.toString(sender.getPublicKeyOfRSA()));
 		System.out.println("Receiver's public key: [N,e] = " + Arrays.toString(receiver.getPublicKeyOfRSA()));
 
-
 		for (int i = 0; i < textList.size(); i++) {
 			System.gc();
 
@@ -128,7 +127,7 @@ public class Main {
 			previousMemoryUsage = MemoryUsage.getMemoryUsageKB();
 
 			List<BigInteger> encryptedText = sender.encryptWithRSA(textList.get(i),
-																	receiver.getPublicKeyOfRSA());
+					receiver.getPublicKeyOfRSA());
 			String decryptedText = receiver.decryptWithRSA(encryptedText);
 
 			latestMemoryUsage = MemoryUsage.getMemoryUsageKB();
@@ -154,7 +153,6 @@ public class Main {
 	}
 
 	public static void Stage3() {
-
 		Person sender = new Person(null, null);
 		Person receiver = new Person(null, null);
 
@@ -172,23 +170,17 @@ public class Main {
 		textList.add(text10);
 		textList.add(text1);
 
-
 		for (int i = 0; i < textList.size(); i++) {
-
-
 			Map<String, String> signatureAndMessageOfSender = sender.signMessage(textList.get(i));
 			boolean isVerified = receiver.isSignatureVerified(signatureAndMessageOfSender,
-																sender.getDSAPublicComponents());
-
+					sender.getDSAPublicComponents());
 
 			if (isVerified)
 				System.out.println("\nText " + (int) Math.pow(10, (textList.size() - 1) - i)
-									+ " is verified");
+						+ " is verified");
 			else
 				System.out.println("\nText " + (int) Math.pow(10, (textList.size() - 1) - i)
-									+ " is not verified");
-
-
+						+ " is not verified");
 		}
 	}
 

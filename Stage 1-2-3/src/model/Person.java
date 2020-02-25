@@ -33,9 +33,7 @@ public class Person {
 		}
 
 		setRSAComponents();
-
 		setDSAcomponents();
-
 	}
 
 	public Map<String, String> signMessage(String M) {
@@ -47,7 +45,6 @@ public class Person {
 		messageAndSignature.put("S", tempMap.get("S").toString());
 
 		return messageAndSignature;
-
 	}
 
 	public boolean isSignatureVerified(Map<String, String> signatureAndMessageOfSender, Map<String, BigInteger> otherDSAPublicComponents) {
@@ -70,7 +67,6 @@ public class Person {
 
 		x = XY.get("X");
 		DSAPublicComponents.put("Y", XY.get("Y"));
-
 	}
 
 	private void setRSAComponents() {
@@ -96,7 +92,6 @@ public class Person {
 
 		publicKeyOfRSA[0] = N;
 		publicKeyOfRSA[1] = e;
-
 	}
 
 	public BigInteger[] getPublicKeyOfRSA() {
